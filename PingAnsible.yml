@@ -1,11 +1,14 @@
 ---
 - name: Test Windows Ping
-  hosts: "{{ my_server }}"
+  hosts: all
   tasks:
     - name: Test Ping
       win_ping:
-      
-    - name: Touch a file (creates if not present, updates modification time if present)
-      ansible.windows.win_file:
-        path: C:\ansibletest\foo.conf
-        state: touch
+    - name: 0. Windows | Check hostname
+      command: hostname
+      register: hostname_result
+      changed_when: False
+      ignore_errors: True  # rc is 3 when firewalld is stopped
+      when: ansible_os_family == "Windows"
+      tags: hostname_status
+    
