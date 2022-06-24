@@ -1,6 +1,6 @@
 ---
 - name: Test Windows Ping
-  hosts: all
+  hosts: "{{ my_server }}"
   tasks:
     - name: Test Ping
       win_ping:
