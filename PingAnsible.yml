@@ -1,8 +1,11 @@
 ---
-- name: win_ping module demo
+- name: Test Windows Ping
   hosts: all
-  become: false
-  gather_facts: false
   tasks:
-    - name: test connection
-      ansible.windows.win_ping:
+    - name: Test Ping
+      win_ping:
+      
+    - name: Touch a file (creates if not present, updates modification time if present)
+      ansible.windows.win_file:
+        path: C:\ansibletest\foo.conf
+        state: touch
