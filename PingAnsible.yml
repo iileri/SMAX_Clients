@@ -1,6 +1,6 @@
 ---
 - name: Test Windows Ping
-  hosts: "{{ my_IP }}"
+  hosts: "{{ my_server }}"
   tasks:
     - name: Test Ping HOA
       win_ping:
