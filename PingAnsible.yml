@@ -1,8 +1,8 @@
 ---
 - name: Test Windows Ping
-  hosts: all
+  hosts: {{ my_IP }}
   tasks:
-    - name: Test Ping
+    - name: Test Ping HOA
       win_ping:
     - name: 0. Windows | Check hostname
       command: hostname
