@@ -4,11 +4,8 @@
   tasks:
     - name: Test Ping HOA
       win_ping:
-    - name: 0. Windows | Check hostname
-      command: hostname
-      register: hostname_result
-      changed_when: False
-      ignore_errors: True  # rc is 3 when firewalld is stopped
-      when: ansible_os_family == "Windows"
-      tags: hostname_status
+    - name: Obtain information about a folder
+      ansible.windows.win_stat:
+      path: C:\Program Files
+      register: folder_info
     
