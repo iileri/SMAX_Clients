@@ -6,6 +6,5 @@
       win_ping:
     - name: Obtain information about a folder
       ansible.windows.win_stat:
-      path: C:\Program Files
+        path: C:\Program Files
       register: folder_info
-    
